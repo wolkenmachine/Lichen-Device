@@ -72,6 +72,12 @@ impl AudioSystem {
                 err_fn,
                 None,
             ),
+            SampleFormat::U8 => device.build_output_stream(
+                &config,
+                move |data: &mut [u8], _: &cpal::OutputCallbackInfo| ctx.write_frame(data),
+                err_fn,
+                None,
+            ),
             _ => panic!("unhandled sample format!"),
         }
         .unwrap();
