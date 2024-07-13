@@ -21,6 +21,7 @@ fn main() {
 
     // Limit to max ~60 fps update rate
     window.set_target_fps(60);
+    window.set_cursor_visibility(false);
 
     // Raster
     let mut raster = Raster::new(WIDTH, HEIGHT);
